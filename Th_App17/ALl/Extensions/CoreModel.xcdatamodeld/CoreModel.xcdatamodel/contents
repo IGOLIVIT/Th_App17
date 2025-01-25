@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22758" systemVersion="23B74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="AchModel" representedClassName="AchModel" syncable="YES" codeGenerationType="class">
+        <attribute name="aCat" optional="YES" attributeType="String"/>
+        <attribute name="aDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="aImp" optional="YES" attributeType="String"/>
+        <attribute name="aName" optional="YES" attributeType="String"/>
+        <attribute name="aNot" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="PartModel" representedClassName="PartModel" syncable="YES" codeGenerationType="class">
+        <attribute name="pCat" optional="YES" attributeType="String"/>
+        <attribute name="pDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="pImp" optional="YES" attributeType="String"/>
+        <attribute name="pName" optional="YES" attributeType="String"/>
+        <attribute name="pNot" optional="YES" attributeType="String"/>
+    </entity>
+</model>
