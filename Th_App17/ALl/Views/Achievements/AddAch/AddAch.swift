@@ -205,6 +205,7 @@ struct AddAch: View {
                         
                         viewModel.startStar = 1
                         viewModel.aName = ""
+                        viewModel.aNot = ""
                         
                         viewModel.fetchAchs()
                         

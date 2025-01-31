@@ -26,6 +26,46 @@ struct AchievementsView: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.bottom, 20)
                 
+                HStack {
+                    
+                    Text("Category:")
+                        .foregroundColor(.black)
+                        .font(.system(size: 17, weight: .regular))
+                    
+                    Menu(content: {
+                        
+                        ForEach(viewModel.FilterCategories, id: \.self) { index in
+                        
+                            Button(action: {
+                                
+                                viewModel.categoryForFilter = index
+
+                            }, label: {
+                                
+                                Text(index)
+                            })
+                        }
+                        
+                    }, label: {
+                        
+                        HStack {
+                            
+                            Text(viewModel.categoryForFilter)
+                                .foregroundColor(.black)
+                                .font(.system(size: 17, weight: .regular))
+                         
+                            Spacer()
+                            
+                            Image(systemName: "chevron.up.chevron.down")
+                                .foregroundColor(.black)
+                                .font(.system(size: 17, weight: .regular))
+                        }
+                    })
+                    .padding(13)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(RoundedRectangle(cornerRadius: 10).fill(Color("bg2")))
+                }
+                
                 if viewModel.achievements.isEmpty {
                     
                     VStack(spacing: 13) {
@@ -46,180 +86,360 @@ struct AchievementsView: View {
                     
                 } else {
                     
+                    if viewModel.categoryForFilter == "All" {
+                    
                     ScrollView(.vertical, showsIndicators: false) {
                         
                         LazyVStack {
                             
                             ForEach(viewModel.achievements, id: \.self) { index in
+                                
+                                VStack(alignment: .leading, spacing: 15) {
                                     
-                                    VStack(alignment: .leading, spacing: 15) {
+                                    HStack {
                                         
-                                        HStack {
+                                        Text(index.aName ?? "")
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 20, weight: .regular))
+                                        
+                                        Spacer()
+                                        
+                                        Image(index.aCat ?? "")
+                                            .resizable()
+                                            .renderingMode(.template)
+                                            .foregroundColor(Color("prim"))
+                                            .frame(width: 20, height: 20)
+                                    }
+                                    
+                                    Text((index.aDate ?? Date()).convertDate(format: "dd.MM.YYYY"))
+                                        .foregroundColor(.gray.opacity(0.6))
+                                        .font(.system(size: 14, weight: .regular))
+                                    
+                                    Text("Importance")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 12, weight: .regular))
+                                    
+                                    HStack {
+                                        
+                                        if index.aImp ?? "" == "1" {
                                             
-                                            Text(index.aName ?? "")
-                                                .foregroundColor(.black)
-                                                .font(.system(size: 20, weight: .regular))
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                            }
                                             
-                                            Spacer()
+                                        } else if index.aImp == "2" {
                                             
-                                            Image(index.aCat ?? "")
-                                                .resizable()
-                                                .renderingMode(.template)
-                                                .foregroundColor(Color("prim"))
-                                                .frame(width: 20, height: 20)
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                            }
+                                            
+                                        } else if index.aImp == "3" {
+                                            
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                            }
+                                            
+                                        } else if index.aImp == "4" {
+                                            
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                            }
+                                            
+                                        } else {
+                                            
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                            }
+                                            
                                         }
                                         
-                                        Text((index.aDate ?? Date()).convertDate(format: "dd.MM.YYYY"))
-                                            .foregroundColor(.gray.opacity(0.6))
-                                            .font(.system(size: 14, weight: .regular))
+                                        Spacer()
                                         
-                                        Text("Importance")
+                                        Button(action: {
+                                            
+                                            viewModel.selectedAch = index
+                                            
+                                            withAnimation(.spring()) {
+                                                
+                                                viewModel.isDelete = true
+                                            }
+                                            
+                                        }, label: {
+                                            
+                                            Image(systemName: "trash")
+                                                .foregroundColor(.red)
+                                                .font(.system(size: 16, weight: .regular))
+                                        })
+                                    }
+                                    
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        
+                                        Text("Note")
                                             .foregroundColor(.black)
                                             .font(.system(size: 12, weight: .regular))
                                         
-                                        HStack {
-                                            
-                                            if index.aImp ?? "" == "1" {
-                                                
-                                                HStack {
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                }
-                                                
-                                            } else if index.aImp == "2" {
-                                                
-                                                HStack {
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                }
-                                                
-                                            } else if index.aImp == "3" {
-                                                
-                                                HStack {
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                }
-                                                
-                                            } else if index.aImp == "4" {
-                                                
-                                                HStack {
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star")
-                                                        .foregroundColor(.orange)
-                                                }
-                                                
-                                            } else {
-                                                
-                                                HStack {
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                    
-                                                    Image(systemName: "star.fill")
-                                                        .foregroundColor(.orange)
-                                                }
-                                                
-                                            }
-                                            
-                                            Spacer()
-                                            
-                                            Button(action: {
-                                                
-                                                viewModel.selectedAch = index
-                                                
-                                                withAnimation(.spring()) {
-                                                    
-                                                    viewModel.isDelete = true
-                                                }
-                                                
-                                            }, label: {
-                                                
-                                                Image(systemName: "trash")
-                                                    .foregroundColor(.red)
-                                                    .font(.system(size: 16, weight: .regular))
-                                            })
-                                        }
-                                        
-                                        VStack(alignment: .leading, spacing: 5) {
-                                            
-                                            Text("Note")
-                                                .foregroundColor(.black)
-                                                .font(.system(size: 12, weight: .regular))
-                                            
-                                            Text(index.aNot ?? "")
-                                                .foregroundColor(.black)
-                                                .font(.system(size: 14, weight: .regular))
-                                        }
-                                        .padding()
-                                        .frame(maxWidth: .infinity, alignment: .leading)
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color("prim").opacity(0.1)))
+                                        Text(index.aNot ?? "")
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 14, weight: .regular))
                                     }
                                     .padding()
                                     .frame(maxWidth: .infinity, alignment: .leading)
-                                    .background(RoundedRectangle(cornerRadius: 20).fill(Color("bg2")))
+                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color("prim").opacity(0.1)))
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(RoundedRectangle(cornerRadius: 20).fill(Color("bg2")))
                             }
                         }
                     }
+                    
+                } else {
+                    
+                    ScrollView(.vertical, showsIndicators: false) {
+                        
+                        LazyVStack {
+                            
+                            ForEach(viewModel.achievements.filter({($0.aCat ?? "") == viewModel.categoryForFilter}), id: \.self) { index in
+                                
+                                VStack(alignment: .leading, spacing: 15) {
+                                    
+                                    HStack {
+                                        
+                                        Text(index.aName ?? "")
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 20, weight: .regular))
+                                        
+                                        Spacer()
+                                        
+                                        Image(index.aCat ?? "")
+                                            .resizable()
+                                            .renderingMode(.template)
+                                            .foregroundColor(Color("prim"))
+                                            .frame(width: 20, height: 20)
+                                    }
+                                    
+                                    Text((index.aDate ?? Date()).convertDate(format: "dd.MM.YYYY"))
+                                        .foregroundColor(.gray.opacity(0.6))
+                                        .font(.system(size: 14, weight: .regular))
+                                    
+                                    Text("Importance")
+                                        .foregroundColor(.black)
+                                        .font(.system(size: 12, weight: .regular))
+                                    
+                                    HStack {
+                                        
+                                        if index.aImp ?? "" == "1" {
+                                            
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                            }
+                                            
+                                        } else if index.aImp == "2" {
+                                            
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                            }
+                                            
+                                        } else if index.aImp == "3" {
+                                            
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                            }
+                                            
+                                        } else if index.aImp == "4" {
+                                            
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star")
+                                                    .foregroundColor(.orange)
+                                            }
+                                            
+                                        } else {
+                                            
+                                            HStack {
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                                
+                                                Image(systemName: "star.fill")
+                                                    .foregroundColor(.orange)
+                                            }
+                                            
+                                        }
+                                        
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            
+                                            viewModel.selectedAch = index
+                                            
+                                            withAnimation(.spring()) {
+                                                
+                                                viewModel.isDelete = true
+                                            }
+                                            
+                                        }, label: {
+                                            
+                                            Image(systemName: "trash")
+                                                .foregroundColor(.red)
+                                                .font(.system(size: 16, weight: .regular))
+                                        })
+                                    }
+                                    
+                                    VStack(alignment: .leading, spacing: 5) {
+                                        
+                                        Text("Note")
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 12, weight: .regular))
+                                        
+                                        Text(index.aNot ?? "")
+                                            .foregroundColor(.black)
+                                            .font(.system(size: 14, weight: .regular))
+                                    }
+                                    .padding()
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color("prim").opacity(0.1)))
+                                }
+                                .padding()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(RoundedRectangle(cornerRadius: 20).fill(Color("bg2")))
+                            }
+                        }
+                    }
+                }
                 }
             }
             .padding()

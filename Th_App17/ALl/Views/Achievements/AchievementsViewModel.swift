@@ -12,7 +12,10 @@ final class AchievementsViewModel: ObservableObject {
     
     @Published var categories: [String] = ["Academics", "Creative Arts", "Languages & Linguistics", "Personal Growth", "Public Speaking & Debate", "Research & Science", "Sports & Fitness", "Technology & Coding", "Volunteering & Community Service"]
     @Published var currentCategory = "Academics"
-        
+    
+    @Published var FilterCategories: [String] = ["All", "Academics", "Creative Arts", "Languages & Linguistics", "Personal Growth", "Public Speaking & Debate", "Research & Science", "Sports & Fitness", "Technology & Coding", "Volunteering & Community Service"]
+    @Published var categoryForFilter = "All"
+
     @Published var addName: String = ""
     @Published var addNG: String = ""
     @Published var addNW: String = ""
