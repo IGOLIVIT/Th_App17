@@ -28,6 +28,11 @@
 		783F22502D4508EF00FAF642 /* DateConvert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783F224F2D4508EF00FAF642 /* DateConvert.swift */; };
 		783F22532D450EC000FAF642 /* AddAch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783F22522D450EC000FAF642 /* AddAch.swift */; };
 		783F22562D450ECA00FAF642 /* AddPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 783F22552D450ECA00FAF642 /* AddPart.swift */; };
+		787762B42D5624910086EC1F /* SlkmgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787762B32D5624910086EC1F /* SlkmgView.swift */; };
+		787762B62D56249B0086EC1F /* DbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787762B52D56249B0086EC1F /* DbyView.swift */; };
+		787762B82D5624AA0086EC1F /* WrymtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787762B72D5624AA0086EC1F /* WrymtView.swift */; };
+		787762C02D5626FC0086EC1F /* UONB1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787762BF2D5626FC0086EC1F /* UONB1.swift */; };
+		787762C22D5627060086EC1F /* UONB2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787762C12D5627060086EC1F /* UONB2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +59,11 @@
 		783F224F2D4508EF00FAF642 /* DateConvert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConvert.swift; sourceTree = "<group>"; };
 		783F22522D450EC000FAF642 /* AddAch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAch.swift; sourceTree = "<group>"; };
 		783F22552D450ECA00FAF642 /* AddPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPart.swift; sourceTree = "<group>"; };
+		787762B32D5624910086EC1F /* SlkmgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlkmgView.swift; sourceTree = "<group>"; };
+		787762B52D56249B0086EC1F /* DbyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DbyView.swift; sourceTree = "<group>"; };
+		787762B72D5624AA0086EC1F /* WrymtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrymtView.swift; sourceTree = "<group>"; };
+		787762BF2D5626FC0086EC1F /* UONB1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UONB1.swift; sourceTree = "<group>"; };
+		787762C12D5627060086EC1F /* UONB2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UONB2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +128,7 @@
 		783F22282D45062D00FAF642 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				787762BE2D5626EF0086EC1F /* UONB */,
 				783F22312D45068400FAF642 /* Onboard */,
 				783F22302D45067F00FAF642 /* Loading */,
 				783F222F2D45067A00FAF642 /* Launch */,
@@ -140,6 +151,9 @@
 				783F224B2D4508E100FAF642 /* CoreDataStack.swift */,
 				783F224D2D4508E800FAF642 /* Array.swift */,
 				783F224F2D4508EF00FAF642 /* DateConvert.swift */,
+				787762B32D5624910086EC1F /* SlkmgView.swift */,
+				787762B52D56249B0086EC1F /* DbyView.swift */,
+				787762B72D5624AA0086EC1F /* WrymtView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -224,6 +238,15 @@
 			path = AddPart;
 			sourceTree = "<group>";
 		};
+		787762BE2D5626EF0086EC1F /* UONB */ = {
+			isa = PBXGroup;
+			children = (
+				787762BF2D5626FC0086EC1F /* UONB1.swift */,
+				787762C12D5627060086EC1F /* UONB2.swift */,
+			);
+			path = UONB;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,13 +324,18 @@
 				783F22362D45069700FAF642 /* CoreModel.xcdatamodeld in Sources */,
 				783F22402D4506C200FAF642 /* TabBar.swift in Sources */,
 				783F223A2D4506B300FAF642 /* R1.swift in Sources */,
+				787762B62D56249B0086EC1F /* DbyView.swift in Sources */,
 				783F224E2D4508E800FAF642 /* Array.swift in Sources */,
 				783F22482D4506E800FAF642 /* ParticipationViewModel.swift in Sources */,
+				787762C02D5626FC0086EC1F /* UONB1.swift in Sources */,
 				783F224C2D4508E100FAF642 /* CoreDataStack.swift in Sources */,
 				783F22462D4506DD00FAF642 /* ParticipationView.swift in Sources */,
 				783F22442D4506D500FAF642 /* AchievementsViewModel.swift in Sources */,
+				787762B82D5624AA0086EC1F /* WrymtView.swift in Sources */,
 				783F22502D4508EF00FAF642 /* DateConvert.swift in Sources */,
+				787762C22D5627060086EC1F /* UONB2.swift in Sources */,
 				783F223E2D4506BD00FAF642 /* R3.swift in Sources */,
+				787762B42D5624910086EC1F /* SlkmgView.swift in Sources */,
 				783F22192D4505EE00FAF642 /* Th_App17App.swift in Sources */,
 				783F223C2D4506B800FAF642 /* R2.swift in Sources */,
 				783F22532D450EC000FAF642 /* AddAch.swift in Sources */,
@@ -460,7 +488,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "IOI.Th-App17";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -499,7 +527,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 14.1;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "IOI.Th-App17";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
